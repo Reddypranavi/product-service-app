@@ -1,0 +1,145 @@
+#%RAML 1.0
+title: product-service-app
+version: 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/c278d3c5-4b72-4131-81ef-33621cee953e/
+
+/products:
+  get:
+    description: This Api is to retrieve product details
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [
+                {
+                  "productName": "Laptop",
+                  "productID": 100,
+                  "productType": "Electronic",
+                  "price": 1000,
+                  "underWarranty": true,
+                  "manufacturingDetails": {
+                    "companyName": "Test",
+                    "manufacturedDate": "2020-01-11T17:28:09.874+0000",
+                    "companyLocation": "Mumbai"
+                  }
+                }
+              ]
+
+/{productid}:
+  get:
+    description: This Api is to get Productid
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                  "productName": "Laptop",
+                  "productID": 100,
+                  "productType": "Electronic",
+                  "price": 1000,
+                  "underWarranty": true,
+                  "manufacturingDetails": {
+                    "companyName": "Test",
+                    "manufacturedDate": "2020-01-11T17:28:09.874+0000",
+                    "companyLocation": "Mumbai"
+                  }
+                }
+
+/deleteProduct:
+  delete:
+    queryParameters:
+      productid:
+        type: integer
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              message:product deleted successfully
+
+/create:
+  post:
+    description: this api is to create product
+    body:
+      application/json:
+        example:
+              {
+                  "productName": "Laptop",
+                  "productID": 100,
+                  "productType": "Electronic",
+                  "price": 1000,
+                  "underWarranty": true,
+                  "manufacturingDetails": {
+                    "companyName": "Test",
+                    "manufacturedDate": "2020-01-11T17:28:09.874+0000",
+                    "companyLocation": "Mumbai"
+                  }
+                }
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              message:product created successfully
+
+/update:
+  put:
+    description: this api is tp update
+    body:
+      application/json:
+        example:
+          {
+                  "productName": "Laptop",
+                  "productID": 100,
+                  "productType": "Electronic",
+                  "price": 1000,
+                  "underWarranty": true,
+                  "manufacturingDetails": {
+                    "companyName": "Test",
+                    "manufacturedDate": "2020-01-11T17:28:09.874+0000",
+                    "companyLocation": "Mumbai"
+                  }
+                }
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              meassage:product updated successfully
+          
+/addproduct:
+  post:
+    body:
+      application/json:
+        example:
+          {
+                  "productName": "Laptop",
+                  "productID": 100,
+                  "productType": "Electronic",
+                  "price": 1000,
+                  "underWarranty": true,
+                  "manufacturingDetails": {
+                    "companyName": "Test",
+                    "manufacturedDate": "2020-01-11T17:28:09.874+0000",
+                    "companyLocation": "Mumbai"
+                  }
+                }
+    responses:
+      500:
+        body:
+          application/json:
+            example:
+              message:error adding product details
+     
+    
+          
+    
+
+          
+          
+
+              
+              
